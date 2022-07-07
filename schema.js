@@ -63,6 +63,5 @@ exports.typeDefs = gql`
   type Mutation {
     createTweet(body: String): Tweet
     deleteTweet(id: ID!): Tweet
-    markTweetRead(id: ID!): Boolean
   }
 `;
