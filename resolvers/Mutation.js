@@ -22,4 +22,13 @@ exports.Mutation = {
     }
     return currTweet;
   },
+
+  markTweetRead: (parent, { id }, { tweets }) => {
+    for (var i = 0; i < tweets.length; i++) {
+      if (tweets[i].id === id) {
+        tweets[i].isRead = true;
+      }
+    }
+    return true;
+  },
 };

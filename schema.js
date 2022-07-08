@@ -9,6 +9,7 @@ exports.typeDefs = gql`
     date: Date
     Author: User
     Stats: Stat
+    isRead: Boolean
   }
 
   type User {
@@ -63,5 +64,6 @@ exports.typeDefs = gql`
   type Mutation {
     createTweet(body: String): Tweet
     deleteTweet(id: ID!): Tweet
+    markTweetRead(id: ID!): Boolean
   }
 `;
