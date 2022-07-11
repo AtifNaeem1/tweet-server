@@ -3,15 +3,14 @@ const { notifications, stats, users, tweets } = require('./db');
 const { typeDefs } = require('./schema');
 const { Query } = require('./resolvers/Query');
 const { Tweet } = require('./resolvers/Tweet');
+const { Mutation } = require('./resolvers/Mutation');
 
 const server = new ApolloServer({
   typeDefs,
-  resolvers: { Query, Tweet },
-  context: {
-    notifications,
-    stats,
-    users,
-    tweets,
+  resolvers: { Query, Tweet, Mutation },
+  context: ({ req }) => {
+    const token = req.headers.authorization || '';
+    console.log(token);
   },
 });
 

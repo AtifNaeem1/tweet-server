@@ -5,6 +5,7 @@ const tweets = [
     date: '2012-01-26T13:51:50.417-07:00',
     userId: 'wxyw2',
     statId: 'xsyt2',
+    isRead: true,
   },
   {
     id: 'xa23ds',
@@ -12,6 +13,7 @@ const tweets = [
     date: '2012-02-12T13:51:50.417-07:00',
     userId: 'wxyw3',
     statId: 'xsyt3',
+    isRead: false,
   },
   {
     id: 'f5rt6h',
@@ -19,6 +21,7 @@ const tweets = [
     date: '2013-05-21T13:51:50.417-07:00',
     userId: 'wxyw3',
     statId: 'xsyt4',
+    isRead: false,
   },
   {
     id: 'asd89s',
@@ -26,6 +29,7 @@ const tweets = [
     date: '2018-01-07T13:51:50.417-07:00',
     userId: 'wxyw4',
     statId: 'xsyt5',
+    isRead: true,
   },
 ];
 

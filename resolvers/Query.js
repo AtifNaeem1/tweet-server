@@ -1,11 +1,13 @@
+const { tweets, users, notifications } = require('../db');
+
 exports.Query = {
-  Tweet: (parent, { id }, { tweets }) =>
+  Tweet: (parent, { id }, context) =>
     tweets.find((tweet) => tweet.id === id),
 
   Tweets: (
     parent,
     { limit, skip, sort_field, sort_order },
-    { tweets }
+    context
   ) => {
     let limitTweets = tweets;
     if (skip !== null) {
@@ -35,15 +37,15 @@ exports.Query = {
     return limitTweets;
   },
 
-  TweetsMeta: (parent, args, { tweets }) => {
+  TweetsMeta: (parent, args, context) => {
     let l = tweets.length;
     return { count: l };
   },
 
-  User: (parent, { id }, { users }) =>
+  User: (parent, { id }, context) =>
     users.find((user) => user.id === id),
 
-  Notifications: (parent, { limit }, { notifications }) => {
+  Notifications: (parent, { limit }, context) => {
     if (limit > 0) {
       finalNotifications = notifications.filter(
         (notifications, key) => key < limit
@@ -52,7 +54,7 @@ exports.Query = {
     return finalNotifications;
   },
 
-  NotificationsMeta: (parent, args, { notifications }) => {
+  NotificationsMeta: (parent, args, context) => {
     let l = notifications.length;
     return { count: l };
   },
