@@ -1,7 +1,8 @@
 const { v4: uuid } = require('uuid');
+const { tweets } = require('../db');
 
 exports.Mutation = {
-  createTweet: (parent, { body }, { tweets }) => {
+  createTweet: (parent, { body }, context) => {
     const newTweet = {
       id: uuid(),
       body: body,
@@ -13,7 +14,7 @@ exports.Mutation = {
     return newTweet;
   },
 
-  deleteTweet: (parent, { id }, { tweets }) => {
+  deleteTweet: (parent, { id }, context) => {
     const currTweet = tweets.find((tweet) => tweet.id === id);
     for (var i = 0; i < tweets.length; i++) {
       if (tweets[i].id === id) {
@@ -23,7 +24,7 @@ exports.Mutation = {
     return currTweet;
   },
 
-  markTweetRead: (parent, { id }, { tweets }) => {
+  markTweetRead: (parent, { id }, context) => {
     for (var i = 0; i < tweets.length; i++) {
       if (tweets[i].id === id) {
         tweets[i].isRead = true;

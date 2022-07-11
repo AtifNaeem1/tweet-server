@@ -8,11 +8,9 @@ const { Mutation } = require('./resolvers/Mutation');
 const server = new ApolloServer({
   typeDefs,
   resolvers: { Query, Tweet, Mutation },
-  context: {
-    notifications,
-    stats,
-    users,
-    tweets,
+  context: ({ req }) => {
+    const token = req.headers.authorization || '';
+    console.log(token);
   },
 });
 
