@@ -9,6 +9,7 @@ exports.typeDefs = gql`
     date: Date
     Author: User
     Stats: Stat
+    isRead: Boolean
   }
 
   type User {
